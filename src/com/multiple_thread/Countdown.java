@@ -2,6 +2,9 @@ package com.multiple_thread;
 
 public class Countdown {
 
+//    Thread variable =
+//    private int i;
+
     public void doCountDown(){
         String color;
 
