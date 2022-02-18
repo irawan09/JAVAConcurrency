@@ -1,7 +1,6 @@
 package com.electroshock;
 
-import static com.electroshock.ThreadColor.ANSI_GREEN;
-import static com.electroshock.ThreadColor.ANSI_PURPLE;
+import static com.electroshock.ThreadColor.*;
 
 public class Main {
 
@@ -19,9 +18,20 @@ public class Main {
             }
         }.start();
 
-        Thread myRunnableThread = new Thread(new MyRunnable());
+        Thread myRunnableThread = new Thread(new MyRunnable(){
+            @Override
+            public void run() {
+                System.out.println(ANSI_RED+"Hello from anonymous class implementation of run()");
+                try {
+                    anotherThread.join();
+                    System.out.println(ANSI_RED+"Another thread is terminated. So, I'm running again");
+                }catch (InterruptedException e){
+                    System.out.println(ANSI_RED+"I couldn't wait after all. I was interrupted");
+                }
+            }
+        });
         myRunnableThread.start();
-        anotherThread.interrupt();
+//        anotherThread.interrupt();
 
         System.out.println(ANSI_PURPLE+"Hello again from main thread");
     }
