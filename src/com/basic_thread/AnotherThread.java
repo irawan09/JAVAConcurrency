@@ -1,6 +1,6 @@
-package com.electroshock;
+package com.basic_thread;
 
-import static com.electroshock.ThreadColor.ANSI_BLUE;
+import static com.basic_thread.ThreadColor.ANSI_BLUE;
 
 public class AnotherThread extends Thread{
     @Override

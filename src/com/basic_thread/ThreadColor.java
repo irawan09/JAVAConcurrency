@@ -1,4 +1,4 @@
-package com.electroshock;
+package com.basic_thread;
 
 public class ThreadColor extends Thread{
 

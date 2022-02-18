@@ -1,6 +1,6 @@
-package com.electroshock;
+package com.basic_thread;
 
-import static com.electroshock.ThreadColor.*;
+import static com.basic_thread.ThreadColor.*;
 
 public class Main {
 

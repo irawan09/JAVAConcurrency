@@ -1,6 +1,6 @@
-package com.electroshock;
+package com.basic_thread;
 
-import static com.electroshock.ThreadColor.ANSI_RED;
+import static com.basic_thread.ThreadColor.ANSI_RED;
 
 public class MyRunnable implements Runnable{
     @Override
