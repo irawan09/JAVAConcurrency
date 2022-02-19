@@ -2,7 +2,7 @@ package com.multiple_thread;
 
 public class Countdown {
 
-//    Thread variable =
+//    https://www.guru99.com/java-stack-heap.html
 //    private int i;
 
     public void doCountDown(){
