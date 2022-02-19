@@ -3,6 +3,7 @@ package com.multiple_thread;
 public class Main {
 
     public static void main(String[] args){
+        // countdown instance is share during the execution of the thread
         Countdown countdown = new Countdown();
 
         CountdownThread t1 = new CountdownThread(countdown);
