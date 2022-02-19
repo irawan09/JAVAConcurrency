@@ -7,6 +7,7 @@ public class Countdown {
     private int i;
 
     // Synchronized method helped thread to print all the value without skipping the decrement data inside the loop
+    // even the execution of the project share the same instance (countdown) during the execution time.
     public synchronized void doCountDown(){
         String color;
 
