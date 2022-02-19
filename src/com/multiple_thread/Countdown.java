@@ -3,6 +3,7 @@ package com.multiple_thread;
 public class Countdown {
 
 //    https://www.guru99.com/java-stack-heap.html
+//    Object instance store in the heap memory, which is share across the thread in the application.
 //    private int i;
 
     public void doCountDown(){
