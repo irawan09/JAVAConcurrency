@@ -10,6 +10,10 @@ public class Main {
     public static final String EOF = "EOF";
 
     public static void main(String[] args){
+
+        //ArrayBlockingQueue
+        //https://www.geeksforgeeks.org/arrayblockingqueue-poll-method-in-java/
+//        ArrayBlockingQueue<String> buffer = new ArrayBlockingQueue<String>(6);
         List<String> buffer = new ArrayList<>();
 
         //Reentrant Lock in Java
