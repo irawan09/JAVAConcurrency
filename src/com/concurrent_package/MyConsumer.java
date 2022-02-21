@@ -1,0 +1,32 @@
+package com.concurrent_package;
+
+import java.util.List;
+import static com.concurrent_package.Main.EOF;
+
+public class MyConsumer implements Runnable{
+
+    private List<String> buffer;
+    private String color;
+
+    public MyConsumer(List<String> buff, String col){
+        this.buffer = buff;
+        this.color = col;
+    }
+
+    @Override
+    public void run() {
+        while (true){
+            synchronized (buffer){
+                if(buffer.isEmpty()){
+                    continue;
+                }
+                if (buffer.get(0).equals(EOF)){
+                    System.out.println(color+"Exiting");
+                    break;
+                } else {
+                    System.out.println(color+"Removed "+buffer.remove(0));
+                }
+            }
+        }
+    }
+}
