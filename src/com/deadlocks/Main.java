@@ -19,7 +19,7 @@ public class Main {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e){
-
+                    System.out.println(e.getMessage());
                 }
                 System.out.println("Thread 1: Waiting for lock2");
                 synchronized (lock2){
@@ -38,7 +38,7 @@ public class Main {
                 try {
                     Thread.sleep(100);
                 }catch (InterruptedException e){
-
+                    System.out.println(e.getMessage());
                 }
                 System.out.println("Thread 2: Waiting for lock1");
                 synchronized (lock1){
