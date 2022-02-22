@@ -1,7 +1,12 @@
 package com.thread_starvation;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Main {
-    private static Object lock = new Object();
+    // Fair Lock = The constructor for this class accepts an optional fairness parameter.
+    // When set true, under contention, locks favor granting access to the longest-waiting thread.
+    // https://hitansu166.wordpress.com/2015/05/17/fair-lock-in-java/
+    private static ReentrantLock lock = new ReentrantLock(true);
 
     public static void main(String[] args){
         Thread t1 = new Thread(new Worker(ThreadColor.ANSI_RED), "Priority 10");
