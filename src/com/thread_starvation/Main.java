@@ -18,6 +18,7 @@ public class Main {
         // setPriority() = method of thread class is used to change the thread's priority.
         // Every thread has a priority which is represented by the integer number between 1 to 10.
         // https://www.javatpoint.com/java-thread-setpriority-method
+
         t1.setPriority(10);
         t2.setPriority(8);
         t3.setPriority(6);
@@ -42,11 +43,20 @@ public class Main {
         @Override
         public void run() {
             for(int i =0; i<100; i++){
-                synchronized (lock){
+                // Instead of using synchronous block, it's better to use Reentrant lock with fair lock feature
+                // to make the setPriority method of the execution of the thread working properly. With fair lock
+                // feature the waiting time of executing time will be longer than the normal object executing time
+                // so the method setPriority will be working properly.
+                lock.lock();
+                try{
                     System.out.format(threadColor+"%s: runCount = %d\n", Thread.currentThread().getName(), runCount++);
                     // execute critical section of code
-
+                }finally {
+                    lock.unlock();
                 }
+
+
+
             }
         }
     }

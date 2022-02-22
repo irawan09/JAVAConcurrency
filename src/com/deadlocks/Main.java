@@ -6,6 +6,8 @@ public class Main {
     public static final Object lock2 = new Object();
 
     public static void main(String[] args){
+        //deadlock occurs because of two or more threads wait forever for a lock or resource held
+        // by another of the threads.
         new Thread1().start();
         new Thread2().start();
 
