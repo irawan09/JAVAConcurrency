@@ -9,7 +9,7 @@ public class Runner2 extends Thread{
         for(int i=0;i<10;i++){
             System.out.println(ANSI_RED+"Runner2: "+i);
             try {
-                Thread.sleep(100);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
