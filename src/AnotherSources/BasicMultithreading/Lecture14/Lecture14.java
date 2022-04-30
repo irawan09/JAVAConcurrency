@@ -8,8 +8,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Lecture14 {
 
-    private static Lock lock1 = new ReentrantLock(true);
-    private static Lock lock2 = new ReentrantLock(true);
+    private static final Lock lock1 = new ReentrantLock(true);
+    private static final Lock lock2 = new ReentrantLock(true);
 
     public static void main(String[] args){
         Lecture14 liveLock = new Lecture14();
@@ -21,13 +21,13 @@ public class Lecture14 {
     public void operation1(){
         while (true){
             try {
-                lock1.tryLock(50, TimeUnit.MILLISECONDS);
+                lock1.tryLock(100, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println(ANSI_BLUE+"Lock1 acquired, trying to acquire lock2");
             try {
-                Thread.sleep(50);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -35,7 +35,7 @@ public class Lecture14 {
             if (lock2.tryLock()){
                 System.out.println(ANSI_BLUE+"Lock2 acquired");
             } else {
-                System.out.println(ANSI_BLUE+"cannot acquired lock2, releaseing lock1");
+                System.out.println(ANSI_BLUE+"cannot acquired lock2, releasing lock1");
                 lock1.unlock();
                 continue;
             }

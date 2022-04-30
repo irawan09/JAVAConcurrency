@@ -6,8 +6,8 @@ import static AnotherSources.BasicMultithreading.Lecture13.ThreadColor.*;
 
 public class Lecture13 {
 
-    private Lock lock1 = new ReentrantLock(true);
-    private Lock lock2 = new ReentrantLock(true);
+    private final Lock lock1 = new ReentrantLock(true);
+    private final Lock lock2 = new ReentrantLock(true);
 
     public static void main(String[] args){
 
