@@ -30,7 +30,6 @@ enum Downloader {
 		} finally {
 			semaphore.release();
 		}
-		
 	}
 
 	private void download() {
