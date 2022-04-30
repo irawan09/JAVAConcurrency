@@ -11,7 +11,7 @@ public class Lecture4 {
         t2.start();
 
         /*
-        * without join() then the execution of printing
+        * without join() method then the execution of printing
         * "Finished the tasks..." will comes first,
         * then after that the Processor will start execute the thread.
         * if you join(), then the execution of thread 1 and 2
