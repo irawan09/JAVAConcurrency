@@ -35,5 +35,6 @@ public class App {
         for(int i=0;i<10;i++){
             executorService.execute(new Worker());
         }
+        executorService.shutdown();
     }
 }
