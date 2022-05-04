@@ -27,6 +27,5 @@ public class Lecture2 {
 
         t1.start();
         t2.start();
-
     }
 }
