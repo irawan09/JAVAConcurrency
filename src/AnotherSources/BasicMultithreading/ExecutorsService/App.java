@@ -2,6 +2,8 @@ package AnotherSources.BasicMultithreading.ExecutorsService;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class App {
 
@@ -31,10 +33,19 @@ public class App {
     public static void main(String[] args){
 
         ExecutorService executorService = Executors.newFixedThreadPool(5);
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
 
         for(int i=0;i<10;i++){
             executorService.execute(new Worker());
         }
+
+        scheduledExecutorService.scheduleAtFixedRate(new ScheduledWorker(), 1000, 2000, TimeUnit.MILLISECONDS);
         executorService.shutdown();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        scheduledExecutorService.shutdown();
     }
 }
