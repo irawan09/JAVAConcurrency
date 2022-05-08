@@ -1,4 +1,4 @@
-package AnotherSources.BasicMultithreading.ExecutorsService;
+package AnotherSources.BasicMultithreading.ThreadPooling.ExecutorsService;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,4 +1,4 @@
-package AnotherSources.BasicMultithreading.ExecutorsService;
+package AnotherSources.BasicMultithreading.ThreadPooling.ExecutorsService;
 
 public class ThreadColor {
     public static final String ANSI_RESET = "\u001B[0m";

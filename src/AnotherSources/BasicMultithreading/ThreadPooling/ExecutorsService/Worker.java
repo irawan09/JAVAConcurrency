@@ -1,6 +1,6 @@
-package AnotherSources.BasicMultithreading.ExecutorsService;
+package AnotherSources.BasicMultithreading.ThreadPooling.ExecutorsService;
 
-import static AnotherSources.BasicMultithreading.ExecutorsService.ThreadColor.*;
+import static AnotherSources.BasicMultithreading.ThreadPooling.ExecutorsService.ThreadColor.*;
 
 public class Worker implements Runnable{
     @Override
