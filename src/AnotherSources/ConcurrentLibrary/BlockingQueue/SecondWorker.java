@@ -14,9 +14,9 @@ public class SecondWorker implements Runnable{
     @Override
     public void run() {
         try {
+            Thread.sleep(100);
             int counter = blockingQueue.take();
             System.out.println(ANSI_RED+"Taking the item out off the queue "+counter);
-            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

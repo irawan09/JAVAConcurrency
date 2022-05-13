@@ -16,11 +16,11 @@ public class FirstWorker implements Runnable{
         int counter = 0;
         try {
             while(true){
+                Thread.sleep(100);
                 blockingQueue.put(counter);
                 System.out.println(ANSI_BLUE+"Append item into the queue "+counter);
                 counter++;
                 System.out.println(ANSI_PURPLE+"Content of BLockingQueue : " + blockingQueue ) ;
-                Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
