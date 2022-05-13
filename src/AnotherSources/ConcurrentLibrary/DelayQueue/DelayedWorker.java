@@ -16,12 +16,18 @@ public class DelayedWorker implements Delayed {
 
     @Override
     public long getDelay(TimeUnit unit) {
-        return 0;
+        return unit.convert(duration - System.currentTimeMillis(), TimeUnit.MILLISECONDS);
     }
 
     @Override
     public int compareTo(Delayed o) {
-        return 0;
+        if (duration < ((DelayedWorker) o).getDuration()){
+            return -1;
+        } else if(duration < ((DelayedWorker) o).getDuration()){
+            return +1;
+        }else {
+            return 0;
+        }
     }
 
     @Override
