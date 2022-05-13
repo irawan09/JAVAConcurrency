@@ -1,5 +1,6 @@
 package AnotherSources.ConcurrentLibrary.BlockingQueue;
 
+import static AnotherSources.ConcurrentLibrary.BlockingQueue.ThreadColor.*;
 import java.util.concurrent.BlockingQueue;
 
 public class SecondWorker implements Runnable{
@@ -19,5 +20,6 @@ public class SecondWorker implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println(ANSI_PURPLE+"Content of BLockingQueue : " + blockingQueue ) ;
     }
 }
