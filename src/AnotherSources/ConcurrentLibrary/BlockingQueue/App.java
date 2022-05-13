@@ -21,7 +21,7 @@ public class App {
 
     public static void main(String[] args){
 
-        BlockingQueue<String> queue = new ArrayBlockingQueue<>(10);
+        BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(10);
 
         FirstWorker firstWorker = new FirstWorker(queue);
         SecondWorker secondWorker = new SecondWorker(queue);

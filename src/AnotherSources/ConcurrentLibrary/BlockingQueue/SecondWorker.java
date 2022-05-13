@@ -5,18 +5,18 @@ import java.util.concurrent.BlockingQueue;
 
 public class SecondWorker implements Runnable{
 
-    BlockingQueue<String> blockingQueue;
+    BlockingQueue<Integer> blockingQueue;
 
-    public SecondWorker(BlockingQueue<String> blockingQueue) {
+    public SecondWorker(BlockingQueue<Integer> blockingQueue) {
         this.blockingQueue = blockingQueue;
     }
 
     @Override
     public void run() {
         try {
-            System.out.println(blockingQueue.take());
-            System.out.println(blockingQueue.take());
-            System.out.println(blockingQueue.take());
+            int counter = blockingQueue.take();
+            System.out.println(ANSI_RED+"Taking the item out off the queue "+counter);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

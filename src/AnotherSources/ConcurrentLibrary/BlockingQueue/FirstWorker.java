@@ -5,18 +5,22 @@ import java.util.concurrent.BlockingQueue;
 
 public class FirstWorker implements Runnable{
 
-    private BlockingQueue<String> blockingQueue;
+    private BlockingQueue<Integer> blockingQueue;
 
-    public FirstWorker(BlockingQueue<String> blockingQueue) {
+    public FirstWorker(BlockingQueue<Integer> blockingQueue) {
         this.blockingQueue = blockingQueue;
     }
 
     @Override
     public void run() {
+        int counter = 0;
         try {
-            blockingQueue.put(ANSI_BLUE+"A");
-            blockingQueue.put(ANSI_RED+"B");
-            blockingQueue.put(ANSI_GREEN+"C");
+            while(true){
+                blockingQueue.put(counter);
+                System.out.println(ANSI_BLUE+"Append item into the queue "+counter);
+                counter++;
+                Thread.sleep(1000);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
