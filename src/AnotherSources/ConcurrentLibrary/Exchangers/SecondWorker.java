@@ -20,6 +20,7 @@ public class SecondWorker implements Runnable{
 
             try {
                 counter = exchanger.exchange(counter);
+                System.out.println(ANSI_RED+"SecondWorker counter value after exchange: "+counter);
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

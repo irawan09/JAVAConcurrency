@@ -20,6 +20,7 @@ public class FirstWorker implements Runnable {
 
             try {
                 counter = exchanger.exchange(counter);
+                System.out.println(ANSI_BLUE+"FirstWorker counter value after exchange: "+counter);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
