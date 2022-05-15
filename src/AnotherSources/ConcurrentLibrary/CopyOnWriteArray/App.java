@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class App {
     /**
-     *CopyOnWriteArrayList can be used as a thread-safe alternative to ArrayList,
+     * CopyOnWriteArrayList can be used as a thread-safe alternative to ArrayList,
      * with additional methods addIfAbsent() and addAllAbsent() that append elements
      * if they are not contained in the list. A CopyOnWriteArrayList makes a new copy of its elements
      * for every write operation and its iterator holds a different copy (snapshot) so
