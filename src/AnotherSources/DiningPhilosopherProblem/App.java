@@ -46,7 +46,7 @@ public class App {
             }
 
             for(Philosopher philosopher : philosophers){
-                System.out.println(ANSI_YELLOW+philosopher+" eat #"+philosopher.getEatingCounter());
+                System.out.println(ANSI_YELLOW+philosopher+" eat "+philosopher.getEatingCounter()+" times");
             }
         }
     }
