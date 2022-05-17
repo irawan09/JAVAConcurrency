@@ -33,7 +33,7 @@ public class App {
 
 
         System.out.printf("Time taken for 100 000 000 elements parallel =>  %6d ms \n", endTime1 - startTime1);
-        System.out.println("");
+        System.out.println("------------------------------------------------------------------------------------");
 
         startTime1 = System.currentTimeMillis();
         mergeSort.mergeSort(0,numbers.length-1);
