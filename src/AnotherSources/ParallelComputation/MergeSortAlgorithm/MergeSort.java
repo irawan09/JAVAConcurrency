@@ -1,5 +1,7 @@
 package AnotherSources.ParallelComputation.MergeSortAlgorithm;
 
+import org.jetbrains.annotations.Contract;
+
 import static AnotherSources.ParallelComputation.MergeSortAlgorithm.ThreadColor.*;
 
 public class MergeSort {
@@ -63,6 +65,7 @@ public class MergeSort {
         }
     }
 
+    @Contract("_, _, _ -> new")
     private Thread mergeSortThread(int low, int high, int numOfThread) {
         return new Thread(){
             @Override
