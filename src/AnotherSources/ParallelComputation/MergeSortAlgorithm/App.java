@@ -11,7 +11,7 @@ public class App {
         int numOfThreads = Runtime.getRuntime().availableProcessors();
 
         System.out.println(ANSI_BLUE+"Number of threads/core: "+numOfThreads);
-        System.out.println("");
+        System.out.println("-----------------------------------------------");
 
         int[] numbers = createRandomArray();
         MergeSort mergeSort = new MergeSort(numbers);
@@ -46,7 +46,7 @@ public class App {
 
 
         System.out.printf("Time taken for 100 000 000 elements sequential =>  %6d ms \n", endTime1 - startTime1);
-        System.out.println("");
+        System.out.println("----------------------------------------------------------------------------------");
 
         //MergeSort mergeSort = new MergeSort(nums);
 
