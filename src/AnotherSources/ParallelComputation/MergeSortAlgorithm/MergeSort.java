@@ -70,7 +70,7 @@ public class MergeSort {
         return new Thread(){
             @Override
             public void run() {
-                parallelMergeSort(low, high, numOfThread);
+                parallelMergeSort(low, high, numOfThread/2);
             }
         };
     }

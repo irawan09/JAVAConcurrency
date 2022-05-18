@@ -37,8 +37,6 @@ public class App {
 
         /** Computation for parallel mergesort algorithm */
         startTime1 = System.currentTimeMillis();
-        mergeSort.parallelMergeSort(0, numbers.length-1, numOfThreads);
-        mergeSort.showResult();
         endTime1 = System.currentTimeMillis();
         System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
     }

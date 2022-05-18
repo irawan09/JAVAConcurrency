@@ -6,6 +6,14 @@ import static AnotherSources.ParallelComputation.MergeSortAlgorithm.ThreadColor.
 
 public class ParallelMergeSort {
 
+    private int[] nums;
+    private int[] tempArray;
+
+    public ParallelMergeSort(int[] nums){
+        this.nums = nums;
+        tempArray = new int[nums.length];
+    }
+
     public void parallelMergeSort(int[] numbers, int numOfThreads) {
         if(numOfThreads <= 1){
             mergeSort(numbers);
