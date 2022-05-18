@@ -1,7 +1,8 @@
 package AnotherSources.ParallelComputation.MergeSortAlgorithm;
+
 import java.util.Random;
 
-import static AnotherSources.ParallelComputation.MergeSortAlgorithm.ThreadColor.*;
+import static AnotherSources.ParallelComputation.MergeSortAlgorithm.ThreadColor.ANSI_BLUE;
 
 public class App {
 
@@ -20,30 +21,26 @@ public class App {
 //            System.out.println(numbers[i]);
 //        }
 
-//        MergeSort mergeSort = new MergeSort(numbers);
+        MergeSort mergeSort = new MergeSort(numbers);
+        long startTime1 = System.currentTimeMillis();
+        long endTime1 = System.currentTimeMillis();
 
-        /** run the algorithm and time how long it takes */
-//        long startTime1 = System.currentTimeMillis();
-//        mergeSort.parallelMergeSort(0, numbers.length-1, numOfThreads);
-//        mergeSort.showResult();
-//        long endTime1 = System.currentTimeMillis();
-
-
-//        System.out.printf("Time taken for 100 000 000 elements parallel =>  %6d ms \n", endTime1 - startTime1);
-//        System.out.println("------------------------------------------------------------------------------------");
-//
+        /** Computation for sequential mergesort algorithm */
 //        startTime1 = System.currentTimeMillis();
 //        mergeSort.mergeSort(0,numbers.length-1);
-//        endTime1 = System.currentTimeMillis();
-
-
-//        System.out.printf("Time taken for 100 000 000 elements sequential =>  %6d ms \n", endTime1 - startTime1);
-//        System.out.println("----------------------------------------------------------------------------------");
-
-//        MergeSort mergeSort = new MergeSort(nums);
-//
-//        mergeSort.parallelMergeSort(0, nums.length-1, numOfThreads);
 //        mergeSort.showResult();
+//        endTime1 = System.currentTimeMillis();
+//        System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
+
+        /** Please be carefull,  if you run parallel algorithm in your personal computer
+         * because this computation requires a lot of resources */
+
+        /** Computation for parallel mergesort algorithm */
+        startTime1 = System.currentTimeMillis();
+        mergeSort.parallelMergeSort(0, numbers.length-1, numOfThreads);
+        mergeSort.showResult();
+        endTime1 = System.currentTimeMillis();
+        System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
     }
 
     public static int[] createRandomArray(){
