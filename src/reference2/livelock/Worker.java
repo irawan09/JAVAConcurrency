@@ -1,4 +1,4 @@
-package reference2.live_lock;
+package reference2.livelock;
 
 public class Worker {
     private String name;
