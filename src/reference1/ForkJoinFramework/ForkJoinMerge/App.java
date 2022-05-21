@@ -22,7 +22,6 @@ public class App {
 		pool.invoke(rootTask);
 		System.out.println(ANSI_RED+"Time taken with parallel sort: " + (System.currentTimeMillis() - start) + " ms");
 		
-		
 	}
 
 	private static int[] initializeNums() {
