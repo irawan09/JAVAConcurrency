@@ -1,32 +1,38 @@
 package AnotherSources.ParallelComputation.MergeSortAlgorithm;
 
-import java.util.Arrays;
-
 import static AnotherSources.ParallelComputation.MergeSortAlgorithm.ThreadColor.*;
 
 public class ParallelMergeSort {
 
+
     private int[] nums;
     private int[] tempArray;
 
-    public ParallelMergeSort(int[] nums){
+    public ParallelMergeSort(int[] nums) {
         this.nums = nums;
-        tempArray = new int[nums.length];
+        this.tempArray = new int[nums.length];
     }
 
-    public void parallelMergeSort(int[] numbers, int numOfThreads) {
-        if(numOfThreads <= 1){
-            mergeSort(numbers);
+    private Thread createThread(int low, int high, int numOfThread) {
+        return new Thread(){
+            @Override
+            public void run() {
+                parallelMergeSort(low, high, numOfThread/2);
+            }
+        };
+    }
+
+    public void parallelMergeSort(int low, int high, int numOfThread){
+
+        if (numOfThread <= 1){
+            mergeSort(low, high);
             return;
         }
 
-        int middleIndex = numbers.length/2;
+        int middleIndex = (low + high)/2;
 
-        int[] leftSubArray = Arrays.copyOfRange(numbers,0, middleIndex);
-        int[] rightSubArray = Arrays.copyOfRange(numbers,middleIndex, numbers.length);
-
-        Thread leftSorter = mergeSortThread(leftSubArray, numOfThreads);
-        Thread rightSorter = mergeSortThread(rightSubArray, numOfThreads);
+        Thread leftSorter = createThread(low, middleIndex, numOfThread);
+        Thread rightSorter = createThread(middleIndex+1, high, numOfThread);
 
         leftSorter.start();
         rightSorter.start();
@@ -37,56 +43,52 @@ public class ParallelMergeSort {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        merge(leftSubArray, rightSubArray, numbers);
+
+        merge(low, middleIndex, high);
     }
 
-    private void merge(int[] leftSubArray, int[] rightSubArray, int[] numbers) {
+    private void merge(int low, int middleIndex, int high) {
+        for(int i=low; i<=high; i++){
+            tempArray[i] = nums[i];
+        }
+        int i = low;
+        int j = middleIndex +1;
+        int k = low;
 
-        int i = 0;
-        int j = 0;
-        int k = 0;
-
-        while(i<leftSubArray.length && j < rightSubArray.length){
-            if (leftSubArray[i] < rightSubArray[j]){
-                numbers[k++] = leftSubArray[i++];
+        while((i<=middleIndex) && (j <= high)){
+            if(tempArray[i] <= tempArray[j]){
+                nums[k] = tempArray[i];
+                i++;
             } else {
-                numbers[k++] = rightSubArray[j++];
+                nums[k] = tempArray[j];
+                j++;
             }
+            k++;
         }
 
-        while (i < leftSubArray.length){
-            numbers[k++] = leftSubArray[i++];
+        while(i <= middleIndex){
+            nums[k] = tempArray[i];
+            k++;
+            i++;
         }
 
-        while (j < rightSubArray.length){
-            numbers[k++] = rightSubArray[j++];
+        while(j <= high){
+            nums[k] = tempArray[j];
+            k++;
+            j++;
         }
     }
 
-    private Thread mergeSortThread(int[] numbers, int numOfThreads) {
-        return new Thread(){
-            @Override
-            public void run() {
-                parallelMergeSort(numbers, numOfThreads);
-            }
-        };
-    }
-
-    private void mergeSort(int[] numbers) {
-
-        if(numbers.length < 1){
+    public void mergeSort(int low, int high) {
+        if(low >= high){
             return;
         }
 
-        int mid = numbers.length/2;
+        int middle = (low+high)/2;
 
-        int[] left = Arrays.copyOfRange(numbers, 0, mid);
-        int[] right = Arrays.copyOfRange(numbers, mid, numbers.length);
-
-        mergeSort(left);
-        mergeSort(right);
-
-        merge(left, right, numbers);
+        mergeSort(low,middle);
+        mergeSort(middle+1, high);
+        merge(low, middle, high);
     }
 
     public void showResult(){
