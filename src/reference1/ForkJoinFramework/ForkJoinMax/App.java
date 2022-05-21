@@ -1,4 +1,6 @@
-package com.balazsholczer.udemy;
+package reference1.ForkJoinFramework.ForkJoinMax;
+
+import static reference1.ForkJoinFramework.ForkJoinMax.ThreadColor.*;
 
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
@@ -15,8 +17,8 @@ public class App {
 		SequentialMaxFind normalMaxFind = new SequentialMaxFind();
 		
 		long start = System.currentTimeMillis();
-		System.out.println("Max: " + normalMaxFind.sequentialMaxFinding(nums, nums.length));
-		System.out.println("Time taken: " + (System.currentTimeMillis() - start) + "ms");
+		System.out.println(ANSI_RED+"Max: " + normalMaxFind.sequentialMaxFinding(nums, nums.length));
+		System.out.println(ANSI_BLUE+"Time taken: " + (System.currentTimeMillis() - start) + "ms");
 
 		System.out.println();
 		
@@ -24,8 +26,8 @@ public class App {
 		MaximumFindTask findTask = new MaximumFindTask(nums, 0, nums.length);
 		
 		start = System.currentTimeMillis();
-		System.out.println("Max: " + forkJoinPool.invoke(findTask));
-		System.out.println("Time taken: " + (System.currentTimeMillis() - start) + "ms");
+		System.out.println(ANSI_RED+"Max: " + forkJoinPool.invoke(findTask));
+		System.out.println(ANSI_BLUE+"Time taken: " + (System.currentTimeMillis() - start) + "ms");
 	}
 
 	private static long[] initializeNums() {

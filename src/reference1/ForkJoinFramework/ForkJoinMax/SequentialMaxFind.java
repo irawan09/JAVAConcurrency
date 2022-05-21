@@ -1,4 +1,4 @@
-package com.balazsholczer.udemy;
+package reference1.ForkJoinFramework.ForkJoinMax;
 
 public class SequentialMaxFind {
 
