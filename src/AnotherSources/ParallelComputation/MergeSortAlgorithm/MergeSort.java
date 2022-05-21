@@ -63,6 +63,12 @@ public class MergeSort {
             k++;
             i++;
         }
+
+        while(j <= high){
+            nums[k] = tempArray[j];
+            k++;
+            j++;
+        }
     }
 
     @Contract("_, _, _ -> new")

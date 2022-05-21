@@ -26,19 +26,19 @@ public class App {
         long endTime1 = System.currentTimeMillis();
 
         /** Computation for sequential mergesort algorithm */
-//        startTime1 = System.currentTimeMillis();
-//        mergeSort.mergeSort(0,numbers.length-1);
-//        mergeSort.showResult();
-//        endTime1 = System.currentTimeMillis();
-//        System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
+        startTime1 = System.currentTimeMillis();
+        mergeSort.mergeSort(0,numbers.length-1);
+        mergeSort.showResult();
+        endTime1 = System.currentTimeMillis();
+        System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
 
         /** Please be carefull,  if you run parallel algorithm in your personal computer
          * because this computation requires a lot of resources */
 
         /** Computation for parallel mergesort algorithm */
-        startTime1 = System.currentTimeMillis();
-        endTime1 = System.currentTimeMillis();
-        System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
+//        startTime1 = System.currentTimeMillis();
+//        endTime1 = System.currentTimeMillis();
+//        System.out.println("Computation Time: "+(startTime1-endTime1)+" ms");
     }
 
     public static int[] createRandomArray(){
