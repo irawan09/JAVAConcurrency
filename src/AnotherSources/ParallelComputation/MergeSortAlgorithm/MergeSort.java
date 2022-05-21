@@ -14,30 +14,30 @@ public class MergeSort {
         this.tempArray = new int[nums.length];
     }
 
-    public void parallelMergeSort(int low, int high, int numOfThread){
-
-        if (numOfThread <= 1){
-            mergeSort(low, high);
-            return;
-        }
-
-        int middleIndex = (low + high)/2;
-
-        Thread leftSorter = mergeSortThread(low, middleIndex, numOfThread);
-        Thread rightSorter = mergeSortThread(middleIndex+1, high, numOfThread);
-
-        leftSorter.start();
-        rightSorter.start();
-
-        try {
-            leftSorter.join();
-            rightSorter.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        merge(low, middleIndex, high);
-    }
+//    public void parallelMergeSort(int low, int high, int numOfThread){
+//
+//        if (numOfThread <= 1){
+//            mergeSort(low, high);
+//            return;
+//        }
+//
+//        int middleIndex = (low + high)/2;
+//
+//        Thread leftSorter = mergeSortThread(low, middleIndex, numOfThread);
+//        Thread rightSorter = mergeSortThread(middleIndex+1, high, numOfThread);
+//
+//        leftSorter.start();
+//        rightSorter.start();
+//
+//        try {
+//            leftSorter.join();
+//            rightSorter.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//
+//        merge(low, middleIndex, high);
+//    }
 
     private void merge(int low, int middleIndex, int high) {
         for(int i=0; i<=high; i++){
@@ -71,15 +71,15 @@ public class MergeSort {
         }
     }
 
-    @Contract("_, _, _ -> new")
-    private Thread mergeSortThread(int low, int high, int numOfThread) {
-        return new Thread(){
-            @Override
-            public void run() {
-                parallelMergeSort(low, high, numOfThread/2);
-            }
-        };
-    }
+//    @Contract("_, _, _ -> new")
+//    private Thread mergeSortThread(int low, int high, int numOfThread) {
+//        return new Thread(){
+//            @Override
+//            public void run() {
+//                parallelMergeSort(low, high, numOfThread/2);
+//            }
+//        };
+//    }
 
     public void mergeSort(int low, int high) {
         if(low >= high){

@@ -88,4 +88,10 @@ public class ParallelMergeSort {
 
         merge(left, right, numbers);
     }
+
+    public void showResult(){
+        for(int i=0; i< nums.length; i++){
+            System.out.println(ANSI_BLUE+nums[i]+" ");
+        }
+    }
 }
