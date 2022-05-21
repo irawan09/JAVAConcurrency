@@ -42,8 +42,8 @@ public class App {
     }
 
     public static int[] createRandomArray(){
-        int[] a = new int[10];
-        for(int i=0; i<10; i++){
+        int[] a = new int[10_000];
+        for(int i=0; i<10_000; i++){
             a[i] = random.nextInt(10000);
         }
         return a;
