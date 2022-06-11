@@ -77,7 +77,7 @@ public abstract class ListFun<T> {
         return NIL ;
     }
 
-    public static <T> ListFun<T> list(T...t){
+    public static <T> ListFun<T> list(T... t){
 
         ListFun<T> temp = list();
 
